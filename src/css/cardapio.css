@@ -1,0 +1,149 @@
+/* Estilos específicos para a página Cardápio (cardapio.html) */
+
+/* Seções do cardápio */
+.menu-section, .menu-section-alt, .promo-section {
+    padding: 2.5em 0;
+}
+
+.menu-section-alt, .promo-section {
+    background-color: #EAE0D5; /* Tom de creme mais escuro */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.4em;
+    margin-bottom: 1.5em;
+    color: var(--cor-vinho);
+}
+
+/* Grid de itens do cardápio */
+.menu-grid, .promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+}
+
+/* Cards de itens do cardápio */
+.menu-item-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--cor-borda-suave);
+}
+
+.menu-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.menu-item-content {
+    padding: 1.5em;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item-title {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+    color: var(--cor-vinho);
+}
+
+.item-description {
+    margin-bottom: 1em;
+    flex-grow: 1;
+    font-size: 0.9em;
+}
+
+.item-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--cor-vinho);
+    margin-top: auto;
+}
+
+/* Cards de promoções */
+.promo-card-highlight {
+    background-color: var(--cor-vinho);
+    color: var(--cor-texto-sobre-vinho);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(92,0,31,0.2);
+    padding: 1.8em;
+}
+
+.promo-title {
+    color: var(--cor-texto-sobre-vinho);
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
+
+.promo-description {
+    color: #f0e0e5;
+    margin-bottom: 1em;
+    flex-grow: 1;
+    font-size: 0.9em;
+}
+
+.promo-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--cor-destaque-sutil);
+    margin-top: auto;
+}
+
+/* Tabela de preços */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5em;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background-color: #fff;
+}
+
+.price-table th, .price-table td {
+    border: 1px solid var(--cor-borda-suave);
+    padding: 0.8em 1em;
+    text-align: left;
+}
+
+.price-table th {
+    background-color: var(--cor-preto);
+    color: var(--cor-texto-sobre-preto);
+    font-weight: bold;
+}
+
+.price-table tbody tr:nth-child(even) {
+    background-color: #F8F0E8; /* Creme ainda mais claro para linhas pares */
+}
+
+.price-table tbody tr:hover {
+    background-color: #EAE0D5;
+}
+
+/* Responsividade específica para a página Cardápio */
+@media (max-width: 992px) {
+    .menu-grid, .promo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .price-table {
+        font-size: 0.85em;
+    }
+    
+    .price-table th, .price-table td {
+        padding: 0.6em 0.8em;
+    }
+}
