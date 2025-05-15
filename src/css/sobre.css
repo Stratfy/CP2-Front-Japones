@@ -1,0 +1,95 @@
+/* Estilos específicos para a página Sobre (sobre.html) */
+
+.sobre-section, .sobre-section-alt {
+    padding: 2.5em 0;
+}
+
+.sobre-section-alt {
+    background-color: #EAE0D5; /* Tom de creme mais escuro */
+}
+
+.section-subtitle {
+    font-size: 1.8em;
+    margin-bottom: 0.7em;
+}
+
+/* Layout de conteúdo com texto e imagem */
+.container-flex-gap {
+    display: flex;
+    gap: 2em;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-content {
+    flex: 1;
+    text-align: center;
+}
+
+.image-content figcaption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 0.5em;
+}
+
+.img-responsive-rounded {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Grid de filosofia */
+.filosofia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 2em;
+    margin-top: 1.5em;
+}
+
+.card-style {
+    background-color: #fff;
+    padding: 1.8em;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid var(--cor-borda-suave);
+}
+
+.filosofia-item h4 {
+    font-size: 1.4em;
+    margin-bottom: 0.6em;
+    color: var(--cor-vinho);
+}
+
+.filosofia-item ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.filosofia-item ul li {
+    margin-bottom: 0.4em;
+    padding-left: 1.4em;
+    position: relative;
+    font-size: 0.95em;
+}
+
+.filosofia-item ul li::before {
+    content: '\2713'; /* Checkmark ou outro ícone */
+    color: var(--cor-vinho);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Responsividade específica para a página Sobre */
+@media (max-width: 768px) {
+    .container-flex-gap {
+        flex-direction: column;
+    }
+    
+    .filosofia-grid {
+        grid-template-columns: 1fr;
+    }
+}
