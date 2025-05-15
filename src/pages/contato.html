@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Sakura Sushi</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/contato.css">
+    <!-- Adicionar link para biblioteca de ícones, se necessário (ex: Font Awesome) -->
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <!-- <img src="../assets/img/logo-sakura.png" alt="Logo Restaurante Sakura"> -->
+                <h1><a href="../../index.html">Sakura Sushi</a></h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                    <li><a href="reserva.html">Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+
+
+
+    <main>
+        <section class="page-title-section">
+            <div class="container">
+                <h2>Entre em Contato com o Sakura Sushi</h2>
+            </div>
+        </section>
+
+        <section id="contato-info" class="contato-section section-padding">
+            <div class="container container-flex-gap-wrap">
+                <div class="form-container flex-item-grow-2 min-width-300">
+                    <h3 class="section-subtitle">Envie sua Mensagem para o Sakura</h3>
+                    <p>Tem alguma dúvida, sugestão ou gostaria de mais informações sobre o Sakura Sushi? Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
+                    <form id="form-contato" action="#" method="post" class="contact-form">
+                        <div class="form-group">
+                            <label for="nome-contato" class="form-label">Nome Completo:</label>
+                            <input type="text" id="nome-contato" name="nomeContato" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-contato" class="form-label">Seu Melhor Email:</label>
+                            <input type="email" id="email-contato" name="emailContato" required placeholder="seuemail@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone-contato" class="form-label">Telefone (Opcional):</label>
+                            <input type="tel" id="telefone-contato" name="telefoneContato" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="assunto-contato" class="form-label">Assunto:</label>
+                            <input type="text" id="assunto-contato" name="assuntoContato" required placeholder="Motivo do seu contato">
+                        </div>
+                        <div class="form-group form-group-textarea">
+                            <label for="mensagem-contato" class="form-label">Sua Mensagem:</label>
+                            <textarea id="mensagem-contato" name="mensagemContato" rows="5" required placeholder="Digite sua mensagem aqui..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit-form">Enviar Mensagem</button>
+                    </form>
+                </div>
+                <aside class="info-sidebar flex-item-grow-1 min-width-280 bg-light-accent sidebar-padding rounded-corners">
+                    <h3 class="sidebar-title">Outras Formas de Contato - Sakura</h3>
+                    <address class="address-style">
+                        <p class="sidebar-text"><strong>Telefone Principal:</strong><br> (11) 9 SAKURA-00</p>
+                        <p class="sidebar-text"><strong>WhatsApp para Reservas:</strong><br> (11) 9 SAKURA-01</p>
+                        <p class="sidebar-text"><strong>Email Geral:</strong><br> <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
+                        <p class="sidebar-text"><strong>Nosso Endereço:</strong><br> Avenida Paulista, 1230<br>Bela Vista - SP<br>CEP: 00000-000</p>
+                    </address>
+                    <h4 class="sidebar-subtitle">Horário de Funcionamento:</h4>
+                    <div class="horario-funcionamento">
+                        <p class="horario-text"><strong>Terça a Sexta:</strong> 12:00 - 15:00 | 18:00 - 23:00</p>
+                        <p class="horario-text"><strong>Sábados:</strong> 12:00 - 23:30</p>
+                        <p class="horario-text"><strong>Domingos e Feriados:</strong> 12:00 - 17:00</p>
+                        <p class="horario-text horario-text-last"><strong>Segundas:</strong> Fechado</p>
+                    </div>
+                    
+                    <div id="mapa-localizacao" class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1021.9330020882387!2d-46.65306831810884!3d-23.56391068311723!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c88849fd6d%3A0x6c2a8652e6e5b36a!2sShopping%20Cidade%20S%C3%A3o%20Paulo!5e1!3m2!1spt-BR!2sbr!4v1747333565503!5m2!1spt-BR!2sbr" 
+                            width="600"
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p><strong>Sakura Sushi</strong></p>
+                <p>Avenida Paulista, 1230</p>
+                <p>Bairro Bela vista - SP</p>
+                <p>Telefone: (11) 9 SAKURA-00</p>
+                <p>Email: <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
+            </div>
+            <div class="footer-social">
+                <p>Siga-nos:</p>
+                <a href="#" aria-label="Facebook">FB</a> <!-- Usar ícones aqui -->
+                <a href="#" aria-label="Instagram">IG</a> <!-- Usar ícones aqui -->
+                <!-- Adicionar mais alguma outra midia social e seu icone -->
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="reserva.html">Reservas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-copyright">
+            <p>&copy; 2025 Sakura Sushi. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/contato.js"></script>
+</body>
+</html>
