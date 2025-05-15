@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Sakura Sushi</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/reserva.css">
+    <!-- Adicionar link para biblioteca de ícones, se necessário (ex: Font Awesome) -->
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <!-- <img src="../assets/img/logo-sakura.png" alt="Logo Restaurante Sakura"> -->
+                <h1><a href="../../index.html">Sakura Sushi</a></h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="reserva.html" class="active">Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title-section">
+            <div class="container">
+                <h2 class="page-main-title">Faça Sua Reserva no Sakura Sushi</h2>
+                <p class="page-subtitle">Garanta sua mesa em nosso ambiente acolhedor e desfrute de uma experiência gastronômica única no Sakura.</p>
+            </div>
+        </section>
+
+        <section id="reserva-form-section" class="reserva-section section-padding">
+            <div class="container container-flex-gap-wrap">
+                <div class="form-container flex-item-grow-2 min-width-300">
+                    <h3 class="section-subtitle">Preencha os Dados da Reserva no Sakura</h3>
+                    <form id="form-reserva" action="#" method="post" class="contact-form">
+                        <div class="form-group">
+                            <label for="nome-reserva" class="form-label">Nome Completo para a Reserva:</label>
+                            <input type="text" id="nome-reserva" name="nomeReserva" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-reserva" class="form-label">Seu Email para Contato:</label>
+                            <input type="email" id="email-reserva" name="emailReserva" required placeholder="seuemail@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone-reserva" class="form-label">Telefone para Contato (com DDD):</label>
+                            <input type="tel" id="telefone-reserva" name="telefoneReserva" required placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div class="form-group-inline">
+                            <div class="form-group flex-item">
+                                <label for="data-reserva" class="form-label">Data da Reserva:</label>
+                                <input type="date" id="data-reserva" name="dataReserva" required>
+                            </div>
+                            <div class="form-group flex-item">
+                                <label for="hora-reserva" class="form-label">Horário da Reserva:</label>
+                                <input type="time" id="hora-reserva" name="horaReserva" required min="12:00" max="22:00">
+                                <small class="form-text-muted">Atendemos das 12h às 22h para reservas.</small>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero-pessoas" class="form-label">Número de Pessoas:</label>
+                            <input type="number" id="numero-pessoas" name="numeroPessoas" min="1" max="20" required placeholder="Ex: 4">
+                            <small class="form-text-muted">Para grupos maiores de 20, contate-nos.</small>
+                        </div>
+                        <div class="form-group form-group-textarea">
+                            <label for="observacoes-reserva" class="form-label">Observações Adicionais (Opcional):</label>
+                            <textarea id="observacoes-reserva" name="observacoesReserva" rows="4" placeholder="Ex: Preferência por mesa próxima à janela, alguma restrição alimentar, etc."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit-form">Solicitar Reserva no Sakura</button>
+                    </form>
+                </div>
+                <aside class="info-sidebar flex-item-grow-1 min-width-280 bg-light-accent sidebar-padding rounded-corners">
+                    <h3 class="sidebar-title">Informações Importantes - Sakura</h3>
+                    <div class="info-box info-box-highlight">
+                        <p class="sidebar-text"><strong>Confirmação:</strong> Sua reserva no Sakura Sushi estará sujeita à confirmação por nossa equipe via telefone ou email em até 24 horas.</p>
+                        <p class="sidebar-text"><strong>Tolerância:</strong> Pedimos a gentileza de respeitar o horário agendado. Haverá uma tolerância máxima de 15 minutos de atraso.</p>
+                        <p class="sidebar-text"><strong>Grupos Grandes:</strong> Para reservas de grupos com mais de 20 pessoas no Sakura, solicitamos que entre em contato diretamente.</p>
+                        <p class="sidebar-text"><strong>Eventos Especiais:</strong> Gostaria de celebrar uma data especial no Sakura? Informe no campo de observações.</p>
+                    </div>
+                    <div class="image-reserva-destaque text-center">
+                        <!-- <img src="../assets/img/ambiente-restaurante-sakura-reserva.jpg" alt="Ambiente elegante do Restaurante Sakura" class="img-responsive-rounded img-mt-1"> -->
+                        <p class="text-italic text-muted mt-1"><em>Esperamos por você para uma experiência memorável no Sakura!</em></p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <p><strong>Sakura Sushi</strong></p>
+                <p>Avenida Paulista, 1230</p>
+                <p>Bairro Bela vista - SP</p>
+                <p>Telefone: (11) 9 SAKURA-00</p>
+                <p>Email: <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
+            </div>
+            <div class="footer-social">
+                <p>Siga-nos:</p>
+                <a href="#" aria-label="Facebook">FB</a> <!-- Usar ícones aqui -->
+                <a href="#" aria-label="Instagram">IG</a> <!-- Usar ícones aqui -->
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="reserva.html">Reservas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-copyright">
+            <p>&copy; 2025 Sakura Sushi. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/reserva.js"></script>
+</body>
+</html>
