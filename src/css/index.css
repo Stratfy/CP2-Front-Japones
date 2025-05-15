@@ -1,0 +1,149 @@
+/* Estilos específicos para a página inicial (index.html) */
+
+/* Hero Section */
+.hero-section {
+    /* background-image: url('../assets/img/hero-background-sakura.jpg'); */ /* Descomentar e ajustar */
+    background-color: var(--cor-vinho); /* Cor de fundo principal */
+    background-size: cover;
+    background-position: center;
+    color: var(--cor-texto-sobre-vinho);
+    padding: 4.5em 0;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 3em;
+    margin-bottom: 0.4em;
+    color: var(--cor-texto-sobre-vinho);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 1.8em;
+    color: var(--cor-texto-sobre-vinho);
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.hero-section .btn {
+    margin: 0.5em;
+}
+.hero-section .btn-primary {
+    background-color: var(--cor-creme);
+    color: var(--cor-vinho);
+    border-color: var(--cor-creme);
+}
+.hero-section .btn-primary:hover {
+    background-color: #e6dcd5;
+    border-color: #e6dcd5;
+}
+.hero-section .btn-secondary {
+    background-color: transparent;
+    color: var(--cor-creme);
+    border-color: var(--cor-creme);
+}
+.hero-section .btn-secondary:hover {
+    background-color: var(--cor-creme);
+    color: var(--cor-vinho);
+}
+
+/* Destaques Section */
+.destaques-section {
+    padding: 3em 0;
+    background-color: var(--cor-creme); /* Fundo principal */
+}
+
+.destaques-section h2 {
+    text-align: center;
+    font-size: 2.4em;
+    margin-bottom: 1.5em;
+    color: var(--cor-vinho);
+}
+
+.destaques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+}
+
+.destaque-item {
+    background-color: #fff; /* Cards com fundo branco para destaque no creme */
+    padding: 1.8em;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--cor-borda-suave);
+}
+
+.destaque-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.destaque-item img {
+    margin-bottom: 1em;
+    border-radius: 4px;
+    height: 180px; /* Ajustar conforme as imagens */
+    object-fit: cover;
+    width: 100%;
+}
+
+.destaque-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--cor-vinho);
+}
+.destaque-item p {
+    font-size: 0.95em;
+    color: var(--cor-preto);
+    margin-bottom: 1em;
+}
+
+/* Call to Action Section */
+.cta-section {
+    padding: 3em 0;
+    text-align: center;
+    background-color: var(--cor-preto);
+    color: var(--cor-texto-sobre-preto);
+}
+
+.cta-section h2 {
+    font-size: 2.4em;
+    color: var(--cor-texto-sobre-preto);
+}
+
+.cta-section p {
+    font-size: 1.1em;
+    color: #ddd;
+    margin-bottom: 1.5em;
+}
+
+.cta-section .btn-primary {
+    background-color: var(--cor-vinho);
+    color: var(--cor-texto-sobre-vinho);
+    border-color: var(--cor-vinho);
+}
+.cta-section .btn-primary:hover {
+    background-color: #4a0018;
+    border-color: #4a0018;
+}
+
+/* Responsividade específica para a página inicial */
+@media (max-width: 992px) {
+    .destaques-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h2 {
+        font-size: 2.2em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+}

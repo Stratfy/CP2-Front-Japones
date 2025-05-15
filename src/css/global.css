@@ -1,0 +1,467 @@
+/*root usado para definir variáveis CSS globais que podem ser reutilizadas em toda a página. */
+:root {
+    --cor-vinho: #5C001F; /* Vinho profundo e sofisticado */
+    --cor-preto: #1A1A1A; /* Preto suave, não totalmente chapado */
+    --cor-creme: #FFF5EE; /* Creme/Off-white para fundo e contraste suave */
+    --cor-texto-sobre-vinho: #FFFFFF;
+    --cor-texto-sobre-preto: #FFFFFF;
+    --cor-texto-sobre-creme: var(--cor-preto);
+    --cor-destaque-sutil: #D4AF37; /* Dourado sutil para detalhes, harmoniza com vinho */
+    --cor-borda-suave: #D3C1C1; /* Um tom acinzentado/rosado claro para bordas */
+
+    --fonte-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --fonte-titulos: 'Georgia', serif; /* Fonte serifada elegante para títulos */
+    --fonte-logo: 'Brush Script MT', cursive; /* Exemplo de fonte cursiva para o logo, se for texto */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-creme);
+    color: var(--cor-texto-sobre-creme);
+    line-height: 1.65;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulos);
+    color: var(--cor-vinho);
+    margin-bottom: 0.6em;
+    line-height: 1.25;
+}
+
+p {
+    margin-bottom: 1.1em;
+}
+
+a {
+    color: var(--cor-vinho);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--cor-destaque-sutil);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+/* Header e Navegação */
+.main-header {
+    background-color: var(--cor-preto);
+    color: var(--cor-texto-sobre-preto);
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2.2em; /* Ajustar conforme a fonte do logo */
+    font-family: var(--fonte-logo); /* Se usar fonte especial para o logo */
+    color: var(--cor-texto-sobre-preto);
+}
+.logo h1 a {
+    color: inherit; /* Herda a cor do h1 */
+    text-decoration: none;
+}
+.logo h1 a:hover {
+    color: var(--cor-vinho); /* Destaque no hover */
+}
+
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 25px;
+}
+
+.main-nav ul li a {
+    color: var(--cor-texto-sobre-preto);
+    font-weight: 500;
+    padding: 0.6em 0.3em;
+    position: relative;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.main-nav ul li a.active,
+.main-nav ul li a:hover {
+    color: var(--cor-vinho);
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-vinho);
+    transition: width 0.35s ease;
+}
+
+.main-nav ul li a.active::after,
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--cor-texto-sobre-preto);
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--cor-preto);
+    color: var(--cor-texto-sobre-preto);
+    padding: 3em 0 1.5em;
+    margin-top: 3em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+.footer-info,
+.footer-social,
+.footer-nav {
+    flex: 1;
+    min-width: 230px;
+}
+
+.footer-info p,
+.footer-social p {
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+    color: #ccc; /* Texto um pouco mais claro no footer escuro */
+}
+.footer-info p strong {
+    color: var(--cor-texto-sobre-preto);
+}
+
+.footer-info a,
+.footer-social a {
+    color: var(--cor-vinho);
+}
+.footer-social a:hover {
+    color: var(--cor-destaque-sutil);
+}
+
+.footer-social a {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+}
+
+.footer-nav ul li {
+    margin-bottom: 0.5em;
+}
+
+.footer-nav ul li a {
+    color: var(--cor-vinho);
+    font-size: 0.9em;
+}
+.footer-nav ul li a:hover {
+    color: var(--cor-destaque-sutil);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 1.5em;
+    border-top: 1px solid #444; /* Linha divisória mais sutil */
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 0.8em 1.6em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    letter-spacing: 0.5px;
+    font-family: var(--fonte-principal);
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--cor-vinho);
+    color: var(--cor-texto-sobre-vinho);
+    border-color: var(--cor-vinho);
+}
+
+.btn-primary:hover {
+    background-color: #4a0018; /* Vinho mais escuro */
+    border-color: #4a0018;
+    color: var(--cor-texto-sobre-vinho);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--cor-vinho);
+    border-color: var(--cor-vinho);
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-vinho);
+    color: var(--cor-texto-sobre-vinho);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.btn-link {
+    color: var(--cor-vinho);
+    font-weight: bold;
+    padding: 0.2em;
+    background: none;
+    border: none;
+}
+.btn-link:hover {
+    color: var(--cor-destaque-sutil);
+    text-decoration: underline;
+}
+
+/* Seções Genéricas */
+.page-title-section {
+    padding: 2.5em 0;
+    text-align: center;
+    background-color: #EAE0D5; /* Um creme um pouco mais escuro para títulos de página */
+    border-bottom: 1px solid var(--cor-borda-suave);
+}
+
+.page-title-section h2 {
+    font-size: 2.6em;
+    margin-bottom: 0.3em;
+    color: var(--cor-vinho);
+}
+
+.page-title-section p {
+    font-size: 1.1em;
+    color: var(--cor-preto);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Formulários - Estilos Comuns */
+.contact-form .form-group {
+    margin-bottom: 1.5em;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--cor-vinho);
+    font-size: 0.95em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="date"],
+.contact-form input[type="time"],
+.contact-form input[type="number"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8em 1em;
+    border: 1px solid var(--cor-borda-suave);
+    border-radius: 4px;
+    font-family: var(--fonte-principal);
+    font-size: 1em;
+    background-color: #fff; /* Fundo branco para campos */
+    color: var(--cor-preto);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--cor-vinho);
+    box-shadow: 0 0 0 3px rgba(92, 0, 31, 0.2);
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form small {
+    display: block;
+    margin-top: 0.3em;
+    font-size: 0.85em;
+    color: #777;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start; /* Alinha os labels com os inputs */
+}
+
+.form-group-inline .form-group {
+    flex: 1;
+}
+
+/* Classes Utilitárias */
+.section-padding {
+    padding: 2.5em 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-light-accent {
+    background-color: #EAE0D5; /* Tom de creme mais escuro */
+}
+
+.rounded-corners {
+    border-radius: 5px;
+}
+
+.sidebar-padding {
+    padding: 1.8em;
+}
+
+.flex-item-grow-1 {
+    flex: 1;
+}
+
+.flex-item-grow-2 {
+    flex: 2;
+}
+
+.min-width-280 {
+    min-width: 280px;
+}
+
+.min-width-300 {
+    min-width: 300px;
+}
+
+.container-flex-gap-wrap {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.container-flex-gap {
+    display: flex;
+    gap: 2em;
+}
+
+.flex-item {
+    flex: 1;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .main-header .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    .main-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .logo {
+        margin-bottom: 0.5em;
+    }
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 1em;
+        right: 1em;
+    }
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1em;
+    }
+    .main-nav ul.active {
+        display: flex;
+    }
+    .main-nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 0.5em 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .form-group-inline {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .container-flex-gap, .container-flex-gap-wrap {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    .hero-section h2 {
+        font-size: 2.2em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+    .page-title-section h2 {
+        font-size: 2em;
+    }
+}
