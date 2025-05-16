@@ -11,40 +11,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    primary: '#D4AF37', // Dourado 
-                    dark: '#0A0A0A',    // Preto principal
-                    darkGray: '#121212', // Cinza escuro
-                    lightGray: '#2A2A2A' // Cinza claro
-                },
-                fontFamily: {
-                    'sans': ['Poppins', 'sans-serif'],
-                    'script': ['"Dancing Script"', 'cursive']
-                },
-                animation: {
-                    'fade-in': 'fadeIn 1.5s ease-in-out',
-                    'slide-up': 'slideUp 0.8s ease-out'
-                },
-                keyframes: {
-                    fadeIn: {
-                        '0%': { opacity: '0' },
-                        '100%': { opacity: '1' }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37', // Dourado 
+                        dark: '#0A0A0A',    // Preto principal
+                        darkGray: '#121212', // Cinza escuro
+                        lightGray: '#2A2A2A' // Cinza claro
                     },
-                    slideUp: {
-                        '0%': { transform: 'translateY(20px)', opacity: '0' },
-                        '100%': { transform: 'translateY(0)', opacity: '1' }
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['"Dancing Script"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
                     }
                 }
             }
         }
-    }
-</script>
+    </script>
     <!-- CSS -->
     <link rel="stylesheet" href="src/css/estilo.css">
 </head>
@@ -55,12 +54,13 @@
         Seu navegador não suporta a tag de vídeo.
     </video>
 
-    <div class="relative z-10 overlay min-h-screen flex flex-col">
+    <!-- Div principal com overlay e conteúdo -->
+    <div class="relative z-10 min-h-screen flex flex-col" style="background-color: rgba(0, 0, 0, 0.7);">
         <!-- Cabeçalho -->
         <header class="py-6 px-8 bg-gradient-to-b from-black to-transparent">
             <div class="container mx-auto flex justify-between items-center">
                 <div class="flex items-center">
-                    <img src="src/assets/icone_pagina.png" alt="Logo Sushi Paraíso" class="h-12 mr-3">
+                    <img src="src/assets/icone_pagina.png" alt="Logo Sakura Sushi" class="h-12 mr-3">
                     <div class="text-3xl font-bold text-primary font-script">
                         Sakura Sushi
                     </div>
@@ -91,7 +91,8 @@
             <!-- Seção de Boas-Vindas -->
             <section class="mb-20 animate-fade-in">
                 <div class="max-w-4xl mx-auto text-center bg-darkGray bg-opacity-80 p-16 rounded-lg shadow-2xl border border-lightGray">
-                    <h1 class="hero-text text-6xl font-bold mb-6 text-primary font-script">Bem-vindo ao Sakura Sushi</h1>                    <p class="text-xl text-gray-300 mb-8">Experimente os melhores sabores do Japão em um ambiente aconchegante e sofisticado.</p>
+                    <h1 class="hero-text text-6xl font-bold mb-6 text-primary font-script">Bem-vindo ao Sakura Sushi</h1>
+                    <p class="text-xl text-gray-300 mb-8">Experimente os melhores sabores do Japão em um ambiente aconchegante e sofisticado.</p>
                     <a href="pages/cardapio.html" class="btn-primary inline-block px-8 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
                         Explorar Cardápio
                     </a>
@@ -177,7 +178,7 @@
                     
                     <div class="testimonial bg-darkGray p-8 rounded-xl shadow-lg border border-lightGray">
                         <div class="mb-4">
-                            <svg class="w-8 h-8 text-primary mx-auto" fill="currentColor" viewBox="0 0 24 24e">
+                            <svg class="w-8 h-8 text-primary mx-auto" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                             </svg>
                         </div>
@@ -240,5 +241,5 @@
 
     <!-- JavaScript -->
     <script src="src/js/script.js"></script>
-</body> 
+</body>
 </html>
