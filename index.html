@@ -62,10 +62,29 @@
 </head>
 <body class="bg-dark text-gray-100">
     <!-- Vídeo de Fundo -->
-    <video autoplay muted loop class="fixed inset-0 z-0 w-full h-full object-cover">
-        <source src="src/assets/videos/background01.mp4" type="video/mp4">
-        Seu navegador não suporta a tag de vídeo.
+    <video id="backgroundVideo" autoplay muted class="fixed inset-0 z-0 w-full h-full object-cover">
+    <source src="src/assets/videos/background01.mp4" type="video/mp4">
+    Seu navegador não suporta a tag de vídeo.
     </video>
+
+    <script>
+    const videoElement = document.getElementById("backgroundVideo");
+    const sources = [
+        "src/assets/videos/background01.mp4",
+        "src/assets/videos/background03.mp4",
+        "src/assets/videos/background04.mp4",
+        "src/assets/videos/background05.mp4"
+    ];
+
+    let index = 0;
+
+    videoElement.onended = () => {
+        index = (index + 1) % sources.length;
+        videoElement.src = sources[index];
+        videoElement.load();
+        videoElement.play();
+    };
+    </script>
 
     <!-- Div principal com overlay e conteúdo -->
     <div class="relative z-10 min-h-screen flex flex-col" style="background-color: rgba(0, 0, 0, 0.85);">
