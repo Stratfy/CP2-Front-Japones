@@ -3,118 +3,350 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Sakura Sushi</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/sobre.css">
-    <!-- Adicionar link para biblioteca de ícones, se necessário (ex: Font Awesome) -->
+    <title>Sobre Nós | Sakura Sushi</title>
+    <!-- Ícone da Página -->
+    <link rel="icon" href="../src/assets/icone_pagina.png">
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind CSS (Inline) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37', // Dourado elegante
+                        dark: '#0A0A0A',    // Preto principal
+                        darkGray: '#121212', // Cinza escuro
+                        lightGray: '#2A2A2A' // Cinza claro
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['"Dancing Script"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link para o CSS personalizado -->
+    <link rel="stylesheet" href="../src/css/estilo.css">
 </head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <!-- <img src="../assets/img/logo-sakura.png" alt="Logo Restaurante Sakura"> -->
-                <h1><a href="../../index.html">Sakura Sushi</a></h1>
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html" class="active">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="bg-dark text-gray-100">
+    <!-- Div principal com overlay e conteúdo -->
+    <div class="relative z-10 min-h-screen flex flex-col bg-dark">
+        <!-- Cabeçalho -->
+        <header class="py-6 px-8 bg-gradient-to-b from-black to-transparent">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="../src/assets/icone_pagina.png" alt="Logo Sushi Paraíso" class="h-12 mr-3">
+                    <div class="text-3xl font-bold text-primary font-script">
+                        Sakura Sushi
+                    </div>
+                </div>
+                <!-- Navegação -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="../index.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="cardapio.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Cardápio</a></li>
+                        <li><a href="sobre.html" class="nav-link text-primary border-b-2 border-primary">Sobre</a></li>
+                        <li><a href="contato.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Contato</a></li>
+                        <li><a href="reserva.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Reserva</a></li>
 
-    <main>
-        <section class="page-title-section">
-            <div class="container">
-                <h2>Conheça Nossa História no Sakura Sushi</h2>
-            </div>
-        </section>
-
-        <section id="historia-restaurante" class="sobre-section section-padding">
-            <div class="container container-flex-gap">
-                <article class="text-content flex-item">
-                    <h3>A Tradição Milenar Floresce no Sakura</h3>
-                    <p>No Sakura Sushi, nossa paixão pela culinária japonesa se manifesta em cada detalhe. Inspirados pela beleza e delicadeza da flor de cerejeira, buscamos compartilhar a riqueza dos sabores e tradições do Japão. Nossa jornada é marcada pela dedicação à qualidade e ao frescor dos ingredientes, uma filosofia que rapidamente conquistou o paladar de nossos clientes.</p>
-                    <p>Crescemos e nos tornamos um refúgio para os amantes da gastronomia oriental, mantendo sempre o respeito pelas técnicas ancestrais e a busca constante pela inovação. Cada prato no Sakura conta uma parte da nossa história, um capítulo de dedicação e amor pela arte de cozinhar, refletindo a essência da cultura japonesa.</p>
-                </article>
-                <figure class="image-content flex-item text-center">
-                    <!-- <img src="../assets/img/interior-restaurante-sakura.jpg" alt="Ambiente interno acolhedor do Restaurante Sakura" class="img-responsive-rounded"> -->
-                    <figcaption>Nosso ambiente no Sakura, pensado para seu conforto e tranquilidade.</figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <section id="missao-visao-valores" class="sobre-section-alt section-padding">
-            <div class="container">
-                <h3 class="text-center section-subtitle">Nossa Filosofia no Sakura</h3>
-                <div class="filosofia-grid">
-                    <article class="filosofia-item card-style">
-                        <h4>Missão</h4>
-                        <p>Oferecer no Sakura Sushi uma experiência gastronômica japonesa autêntica, memorável e de excelência, valorizando ingredientes frescos, técnicas tradicionais e um atendimento acolhedor.</p>
-                    </article>
-                    <article class="filosofia-item card-style">
-                        <h4>Visão</h4>
-                        <p>Ser reconhecido como o principal destino para apreciadores da culinária japonesa na região, destacando o Sakura Sushi pela qualidade, inovação e paixão em compartilhar a tradição.</p>
-                    </article>
-                    <article class="filosofia-item card-style">
-                        <h4>Valores</h4>
-                        <ul>
-                            <li><strong>Qualidade Suprema:</strong> Compromisso com ingredientes frescos e selecionados.</li>
-                            <li><strong>Respeito à Tradição:</strong> Honra às técnicas e receitas clássicas.</li>
-                            <li><strong>Inovação Constante:</strong> Busca por novas combinações e apresentações.</li>
-                            <li><strong>Hospitalidade Genuína:</strong> Atendimento caloroso e atencioso.</li>
-                        </ul>
-                    </article>
+                    </ul>
+                </nav>
+                <!-- Menu Mobile -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </section>
+        </header>
+
+        <!-- Conteúdo Principal - Sobre Nós -->
+        <main class="container mx-auto px-6 py-12 flex-grow">
+            <h1 class="text-5xl font-bold text-primary mb-12 text-center font-script animate-fade-in">Nossa História</h1>
+
+            <!-- História do Restaurante -->
+            <section class="mb-20 animate-slide-up">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="../src/assets/sobre/interior01.png" alt="Interior do Restaurante" class="w-full h-auto rounded-xl shadow-2xl">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-primary mb-6">Como Tudo Começou</h2>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Fundado em 2010 pelo Chef Takashi Yamamoto, o Sakura Sushi nasceu da paixão por oferecer a autêntica culinária japonesa no coração do Brasil. Após anos de treinamento em Tóquio e experiência em restaurantes renomados pelo mundo, Chef Takashi decidiu trazer o verdadeiro sabor do Japão para os brasileiros.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            O que começou como um pequeno restaurante com apenas oito mesas, rapidamente se tornou um dos mais renomados estabelecimentos da cidade. Preservamos a tradição e autenticidade em cada prato, enquanto incorporamos toques contemporâneos que encantam nossos clientes.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Nossa Filosofia -->
+            <section class="mb-20 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-12 text-center">Nossa Filosofia</h2>
+                <div class="bg-darkGray p-8 rounded-xl shadow-xl border border-lightGray">
+                    <div class="text-center mb-8">
+                        <svg class="w-16 h-16 mx-auto text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <div class="max-w-3xl mx-auto">
+                        <p class="text-gray-300 text-xl text-center italic mb-6">
+                            "A verdadeira culinária japonesa é um equilíbrio de sabores, texturas e apresentação visual. Cada prato conta uma história e proporciona uma experiência única."
+                        </p>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            No Sakura Sushi, acreditamos que a comida é mais do que sustento – é uma arte e uma expressão cultural. Nossos princípios fundamentais:
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                                <h3 class="text-xl text-primary font-semibold mb-3">Frescor Incomparável</h3>
+                                <p class="text-gray-300">Selecionamos cuidadosamente os ingredientes mais frescos todos os dias. Nossos peixes são adquiridos de fornecedores sustentáveis e certificados.</p>
+                            </div>
+                            <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                                <h3 class="text-xl text-primary font-semibold mb-3">Técnica Tradicional</h3>
+                                <p class="text-gray-300">Nossos chefs são treinados nas técnicas tradicionais japonesas, preservando a autenticidade em cada corte e preparação.</p>
+                            </div>
+                            <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                                <h3 class="text-xl text-primary font-semibold mb-3">Apresentação Artística</h3>
+                                <p class="text-gray-300">Cada prato é cuidadosamente apresentado como uma obra de arte, respeitando o princípio japonês de que comemos primeiro com os olhos.</p>
+                            </div>
+                            <div class="bg-black bg-opacity-30 p-6 rounded-lg">
+                                <h3 class="text-xl text-primary font-semibold mb-3">Hospitalidade Genuína</h3>
+                                <p class="text-gray-300">Praticamos o "omotenashi" - a hospitalidade japonesa que vai além do simples atendimento, buscando antecipar as necessidades de cada cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Nosso Chef -->
+            <section class="mb-20 animate-slide-up">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                    <div class="md:w-1/2">
+                        <img src="../src/assets/sobre/takashi_yamamoto.png" alt="Chef Takashi Yamamoto" class="w-full h-auto rounded-xl shadow-2xl">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-primary mb-6">Conheça Nosso Chef</h2>
+                        <h3 class="text-2xl text-white mb-4">Chef Takashi Yamamoto</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Com mais de 25 anos de experiência, Chef Takashi dedicou sua vida à arte da culinária japonesa. Nascido em Osaka e treinado em Tóquio, trabalhou em restaurantes premiados no Japão, Nova York e Londres antes de estabelecer o Sushi Paraíso.
+                        </p>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Reconhecido por sua habilidade excepcional no preparo de sushi e sashimi, Chef Takashi é considerado um dos principais mestres da culinária japonesa no Brasil, tendo recebido diversos prêmios e reconhecimentos.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            "Cada grão de arroz, cada corte de peixe, cada detalhe importa. A perfeição não é um destino, mas uma jornada diária." - Chef Takashi
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Nossa Equipe -->
+            <section class="mb-20 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-12 text-center">Nossa Equipe</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-primary">
+                            <img src="../src/assets/sobre/kenji_tanaka.png" alt="Chef Auxiliar" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl text-primary font-semibold mb-2">Kenji Tanaka</h3>
+                        <p class="text-white mb-1">Chef de Sushi</p>
+                        <p class="text-gray-400 text-sm mb-4">15 anos de experiência</p>
+                        <p class="text-gray-300">Especialista em sushi tradicional e inovador, Kenji traz um toque criativo para nossas combinações.</p>
+                    </div>
+                    
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-primary">
+                            <img src="../src/assets/sobre/harumi_sato.png" alt="Chef Auxiliar" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl text-primary font-semibold mb-2">Harumi Sato</h3>
+                        <p class="text-white mb-1">Chef de Cozinha Quente</p>
+                        <p class="text-gray-400 text-sm mb-4">12 anos de experiência</p>
+                        <p class="text-gray-300">Mestra no preparo de pratos quentes da culinária japonesa, com destaque para seus tempuras perfeitos.</p>
+                    </div>
+                    
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray text-center">
+                        <div class="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-primary">
+                            <img src="../src/assets/sobre/marina_suzuki.png" alt="Gerente" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl text-primary font-semibold mb-2">Marina Suzuki</h3>
+                        <p class="text-white mb-1">Gerente de Atendimento</p>
+                        <p class="text-gray-400 text-sm mb-4">8 anos na casa</p>
+                        <p class="text-gray-300">Responsável por garantir que a experiência de cada cliente seja inesquecível, do início ao fim.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Nosso Ambiente -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-12 text-center">Nosso Ambiente</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="relative group overflow-hidden rounded-xl shadow-xl">
+                        <img src="../src/assets/sobre/interior02.png" alt="Ambiente do Restaurante" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white p-4 bg-black bg-opacity-50 w-full">Área principal do restaurante, com balcão tradicional de sushi.</p>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-xl">
+                        <img src="../src/assets/sobre/interior03.png" alt="Ambiente do Restaurante" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white p-4 bg-black bg-opacity-50 w-full">Salas privativas para experiências exclusivas.</p>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-xl">
+                        <img src="../src/assets/sobre/interior04.jpeg" alt="Ambiente do Restaurante" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white p-4 bg-black bg-opacity-50 w-full">Nosso jardim japonês interno, trazendo tranquilidade ao ambiente.</p>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden rounded-xl shadow-xl">
+                        <img src="../src/assets/sobre/interior05.png" alt="Ambiente do Restaurante" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-white p-4 bg-black bg-opacity-50 w-full">Detalhe da decoração inspirada na cultura japonesa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <p class="text-gray-300 max-w-3xl mx-auto">
+                        Criamos um ambiente que transporta nossos clientes diretamente para o Japão. O design minimalista, inspirado no conceito de "Ma" (o espaço entre as coisas), combina elementos tradicionais japoneses com toques contemporâneos para uma experiência imersiva e acolhedora.
+                    </p>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Reconhecimentos -->
+            <section class="text-center animate-fade-in mb-16">
+                <h2 class="text-4xl font-bold text-white mb-12 text-center">Reconhecimentos</h2>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="bg-darkGray p-6 rounded-lg border border-lightGray inline-flex items-center justify-center w-64">
+            <!-- Troféu SVG -->
+                        <svg class="w-16 h-16 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm9 4a1 1 0 10-2 0v6a1 1 0 102 0V7zm-3 2a1 1 0 10-2 0v4a1 1 0 102 0V9zm-3 3a1 1 0 10-2 0v1a1 1 0 102 0v-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div class="ml-3 text-left">
+                            <p class="text-primary font-bold text-lg">Melhor Sushi 2024</p>
+                            <p class="text-gray-400 text-sm">Associação Gastronômica</p>
+                        </div>
+                    </div>
         
-        <section id="ambiente" class="sobre-section section-padding text-center">
-            <div class="container">
-                <h3 class="section-subtitle">Nosso Ambiente Sakura</h3>
-                <p>No Sakura Sushi, criamos um espaço que combina a elegância da tradição japonesa com um toque moderno e acolhedor. Queremos que você se sinta transportado para um pedacinho do Japão, onde cada detalhe foi pensado para proporcionar uma experiência relaxante e agradável.</p>
-                <!-- Adicionar galeria de imagens do ambiente ou um vídeo -->
-                <!-- <img src="../assets/img/detalhe-ambiente-sakura-1.jpg" alt="Detalhe da decoração japonesa do restaurante Sakura" class="img-gallery-item"> -->
-                <!-- <img src="../assets/img/detalhe-ambiente-sakura-2.jpg" alt="Outro detalhe do ambiente do restaurante Sakura" class="img-gallery-item"> -->
-            </div>
-        </section>
-    </main>
+                    <div class="bg-darkGray p-6 rounded-lg border border-lightGray inline-flex items-center justify-center w-64">
+            <!-- Estrela SVG -->
+                        <svg class="w-16 h-16 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <div class="ml-3 text-left">
+                            <p class="text-primary font-bold text-lg">Excelência em Atendimento</p>
+                            <p class="text-gray-400 text-sm">Prêmio Cliente Satisfeito</p>
+                        </div>
+                    </div>
+        
+                    <div class="bg-darkGray p-6 rounded-lg border border-lightGray inline-flex items-center justify-center w-64">
+            <!-- Medalha SVG -->
+                        <svg class="w-16 h-16 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div class="ml-3 text-left">
+                            <p class="text-primary font-bold text-lg">Top 10 Restaurantes</p>
+                            <p class="text-gray-400 text-sm">Guia da Cidade 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-300 max-w-3xl mx-auto mt-8">Nossa dedicação à excelência tem sido reconhecida por críticos gastronômicos e clientes ao longo dos anos. Estamos honrados em compartilhar alguns dos prêmios e reconhecimentos que recebemos.</p>
+            </section>
 
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <p><strong>Sakura Sushi</strong></p>
-                <p>Avenida Paulista, 1230 (dentro do Shopping Cidade São Paulo)</p>
-                <p>Bairro Bela vista - SP</p>
-                <p>Telefone: (11) 9 SAKURA-00</p>
-                <p>Email: <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
-            </div>
-            <div class="footer-social">
-                <p>Siga-nos:</p>
-                <a href="#" aria-label="Facebook">FB</a> <!-- Usar ícones aqui -->
-                <a href="#" aria-label="Instagram">IG</a> <!-- Usar ícones aqui -->
-            </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-copyright">
-            <p>&copy; 2025 Sakura Sushi. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+            <!-- Chamada para Ação -->
+            <section class="text-center animate-fade-in">
+                <div class="max-w-2xl mx-auto bg-darkGray bg-opacity-80 p-12 rounded-lg shadow-2xl border border-lightGray">
+                    <h2 class="text-3xl font-bold text-primary mb-6 font-script">Venha nos conhecer</h2>
+                    <p class="text-xl text-gray-300 mb-8">Estamos ansiosos para recebê-lo e proporcionar uma experiência gastronômica inesquecível.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="cardapio.html" class="btn-outline inline-block px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">
+                            Ver Cardápio
+                        </a>
+                        <a href="contato.html" class="btn-primary inline-block px-6 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300">
+                            Fazer Reserva
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/sobre.js"></script>
+        <!-- Rodapé -->
+        <footer class="bg-darkGray text-gray-200 p-8 border-t border-lightGray">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Informação de Contato -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Contato</h3>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📍</span> Avenida Paulista, 1230 (Dentro do Shopping Cidade São Paulo)</p>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📞</span> (11) 1234-5678</p>
+                    <p class="text-gray-400"><span class="text-primary mr-2">📧</span> contato@restaurantesakura.com.br</p>
+                </div>
+                
+                <!-- Horário de Funcionamento -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Horário de Funcionamento</h3>
+                    <p class="text-gray-400 mb-2">Segunda a Sexta: 18h - 23h</p>
+                    <p class="text-gray-400 mb-2">Sábados e Domingos: 12h - 00h</p>
+                    <p class="text-gray-400">Feriados: 12h - 22h</p>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-semibold mb-2 text-primary">Reservas</h4>
+                        <a href="pages/reserva.html" class="btn-outline inline-block px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">Fazer Reserva</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 mt-8 pt-6 border-t border-gray-800">
+                &copy; 2025 Sushi Paraíso. Todos os direitos reservados.
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="src/js/script.js"></script>
 </body>
 </html>
