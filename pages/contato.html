@@ -3,134 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Sakura Sushi</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/contato.css">
-    <!-- Adicionar link para biblioteca de ícones, se necessário (ex: Font Awesome) -->
+    <title>Contato | Sushi Paraíso</title>
+    <!-- Ícone da Página -->
+    <link rel="icon" href="../src/assets/icone_pagina.png">
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind CSS (Inline) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37', // Dourado elegante
+                        dark: '#0A0A0A',    // Preto principal
+                        darkGray: '#121212', // Cinza escuro
+                        lightGray: '#2A2A2A' // Cinza claro
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['"Dancing Script"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link para o CSS personalizado -->
+    <link rel="stylesheet" href="../src/css/estilo.css">
 </head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <!-- <img src="../assets/img/logo-sakura.png" alt="Logo Restaurante Sakura"> -->
-                <h1><a href="../../index.html">Sakura Sushi</a></h1>
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html" class="active">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    
-
-
-
-    <main>
-        <section class="page-title-section">
-            <div class="container">
-                <h2>Entre em Contato com o Sakura Sushi</h2>
-            </div>
-        </section>
-
-        <section id="contato-info" class="contato-section section-padding">
-            <div class="container container-flex-gap-wrap">
-                <div class="form-container flex-item-grow-2 min-width-300">
-                    <h3 class="section-subtitle">Envie sua Mensagem para o Sakura</h3>
-                    <p>Tem alguma dúvida, sugestão ou gostaria de mais informações sobre o Sakura Sushi? Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
-                    <form id="form-contato" action="#" method="post" class="contact-form">
-                        <div class="form-group">
-                            <label for="nome-contato" class="form-label">Nome Completo:</label>
-                            <input type="text" id="nome-contato" name="nomeContato" required placeholder="Seu nome completo">
-                        </div>
-                        <div class="form-group">
-                            <label for="email-contato" class="form-label">Seu Melhor Email:</label>
-                            <input type="email" id="email-contato" name="emailContato" required placeholder="seuemail@exemplo.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone-contato" class="form-label">Telefone (Opcional):</label>
-                            <input type="tel" id="telefone-contato" name="telefoneContato" placeholder="(XX) XXXXX-XXXX">
-                        </div>
-                        <div class="form-group">
-                            <label for="assunto-contato" class="form-label">Assunto:</label>
-                            <input type="text" id="assunto-contato" name="assuntoContato" required placeholder="Motivo do seu contato">
-                        </div>
-                        <div class="form-group form-group-textarea">
-                            <label for="mensagem-contato" class="form-label">Sua Mensagem:</label>
-                            <textarea id="mensagem-contato" name="mensagemContato" rows="5" required placeholder="Digite sua mensagem aqui..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit-form">Enviar Mensagem</button>
-                    </form>
+<body class="bg-dark text-gray-100">
+    <!-- Div principal com overlay e conteúdo -->
+    <div class="relative z-10 min-h-screen flex flex-col bg-dark">
+        <!-- Cabeçalho -->
+        <header class="py-6 px-8 bg-gradient-to-b from-black to-transparent">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="../src/assets/icone_pagina.png" alt="Logo Sushi Paraíso" class="h-12 mr-3">
+                    <div class="text-3xl font-bold text-primary font-script">
+                        Sushi Paraíso
+                    </div>
                 </div>
-                <aside class="info-sidebar flex-item-grow-1 min-width-280 bg-light-accent sidebar-padding rounded-corners">
-                    <h3 class="sidebar-title">Outras Formas de Contato - Sakura</h3>
-                    <address class="address-style">
-                        <p class="sidebar-text"><strong>Telefone Principal:</strong><br> (11) 9 SAKURA-00</p>
-                        <p class="sidebar-text"><strong>WhatsApp para Reservas:</strong><br> (11) 9 SAKURA-01</p>
-                        <p class="sidebar-text"><strong>Email Geral:</strong><br> <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
-                        <p class="sidebar-text"><strong>Nosso Endereço:</strong><br> Avenida Paulista, 1230 (dentro do Shopping Cidade São Paulo)<br>Bela Vista - SP<br>CEP: 00000-000</p>
-                    </address>
-                    <h4 class="sidebar-subtitle">Horário de Funcionamento:</h4>
-                    <div class="horario-funcionamento">
-                        <p class="horario-text"><strong>Terça a Sexta:</strong> 12:00 - 15:00 | 18:00 - 23:00</p>
-                        <p class="horario-text"><strong>Sábados:</strong> 12:00 - 23:30</p>
-                        <p class="horario-text"><strong>Domingos e Feriados:</strong> 12:00 - 17:00</p>
-                        <p class="horario-text horario-text-last"><strong>Segundas:</strong> Fechado</p>
-                    </div>
-                    
-                    <div id="mapa-localizacao" class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1021.9330020882387!2d-46.65306831810884!3d-23.56391068311723!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c88849fd6d%3A0x6c2a8652e6e5b36a!2sShopping%20Cidade%20S%C3%A3o%20Paulo!5e1!3m2!1spt-BR!2sbr!4v1747333565503!5m2!1spt-BR!2sbr" 
-                            width="600"
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </aside>
+                <!-- Navegação -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="../index.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="cardapio.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Cardápio</a></li>
+                        <li><a href="sobre.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Sobre</a></li>
+                        <li><a href="contato.html" class="nav-link text-primary border-b-2 border-primary">Contato</a></li>
+                        <li><a href="reserva.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Reservas</a></li>
+                    </ul>
+                </nav>
+                <!-- Menu Mobile -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </section>
-    </main>
+        </header>
 
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <p><strong>Sakura Sushi</strong></p>
-                <p>Avenida Paulista, 1230 (dentro do Shopping Cidade São Paulo)</p>
-                <p>Bairro Bela vista - SP</p>
-                <p>Telefone: (11) 9 SAKURA-00</p>
-                <p>Email: <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
-            </div>
-            <div class="footer-social">
-                <p>Siga-nos:</p>
-                <a href="#" aria-label="Facebook">FB</a> <!-- Usar ícones aqui -->
-                <a href="#" aria-label="Instagram">IG</a> <!-- Usar ícones aqui -->
-                <!-- Adicionar mais alguma outra midia social e seu icone -->
-            </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-copyright">
-            <p>&copy; 2025 Sakura Sushi. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        <!-- Conteúdo Principal - Contato -->
+        <main class="container mx-auto px-6 py-12 flex-grow">
+            <h1 class="text-5xl font-bold text-primary mb-12 text-center font-script animate-fade-in">Fale Conosco</h1>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/contato.js"></script>
+            <div class="section-divider"></div>
+
+            <section class="mb-16 animate-slide-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Informações de Contato -->
+                    <div class="bg-darkGray p-8 rounded-xl shadow-xl border border-lightGray flex flex-col justify-center">
+                        <h2 class="text-3xl font-bold text-primary mb-6">Informações de Contato</h2>
+                        <div class="space-y-6 text-gray-300">
+                            <p class="flex items-center text-lg">
+                                <span class="text-primary mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                                </span>
+                                Avenida Paulista, 1230 (Shopping Cidade São Paulo)<br>Bela Vista - SP, CEP 01310-100
+                            </p>
+                            <p class="flex items-center text-lg">
+                                <span class="text-primary mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                                </span>
+                                Telefone: (11) 9 SUSHI-00
+                            </p>
+                            <p class="flex items-center text-lg">
+                                <span class="text-primary mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path><path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"></path></svg>
+                                </span>
+                                WhatsApp para Reservas: (11) 9 SUSHI-01
+                            </p>
+                            <p class="flex items-center text-lg">
+                                <span class="text-primary mr-3">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                </span>
+                                contato@sakurasushi.com
+                            </p>
+                        </div>
+                        
+                        <!-- Horário de Funcionamento -->
+                         <div class="mt-8 pt-6 border-t border-lightGray">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Horário de Funcionamento</h3>
+                            <p class="text-gray-400 mb-2"><strong>Terça a Sexta:</strong> 12:00 - 15:00 | 18:00 - 23:00</p>
+                            <p class="text-gray-400 mb-2"><strong>Sábados:</strong> 12:00 - 23:30</p>
+                            <p class="text-gray-400 mb-2"><strong>Domingos e Feriados:</strong> 12:00 - 17:00</p>
+                            <p class="text-gray-400"><strong>Segundas:</strong> Fechado</p>
+                        </div>
+
+                         <!-- Redes Sociais -->
+                        <div class="mt-8 pt-6 border-t border-lightGray">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Siga-nos</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                                </a>
+                                <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </a>
+                                <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de Contato -->
+                    <div class="bg-darkGray p-8 rounded-xl shadow-xl border border-lightGray">
+                        <h2 class="text-3xl font-bold text-primary mb-6">Envie sua Mensagem</h2>
+                        <p class="text-gray-300 mb-6">Tem alguma dúvida, sugestão ou gostaria de mais informações? Preencha o formulário abaixo e nossa equipe entrará em contato o mais breve possível.</p>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Nome Completo</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="Seu nome completo">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Seu Melhor Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="seuemail@exemplo.com">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Telefone</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" placeholder="(XX) XXXXX-XXXX">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Assunto</label>
+                                <select id="subject" name="subject" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary">
+                                    <option value="reserva">Reserva</option>
+                                    <option value="evento">Evento Privado</option>
+                                    <option value="duvida">Dúvida</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="parceria">Proposta de Parceria</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Sua Mensagem</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="Digite sua mensagem aqui..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn-primary inline-block px-8 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                                    Enviar Mensagem
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Seção de Mapa  -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Onde Estamos</h2>
+                <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray overflow-hidden">
+                    <!-- Mapa do Google (Shopping Cidade São Paulo) -->
+                    <div class="relative w-full" style="padding-bottom: 56.25%;"> <!-- Proporção 16:9 -->
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1021.9330020882387!2d-46.65306831810884!3d-23.56391068311723!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c88849fd6d%3A0x6c2a8652e6e5b36a!2sShopping%20Cidade%20S%C3%A3o%20Paulo!5e1!3m2!1spt-BR!2sbr!4v1747333565503!5m2!1spt-BR!2sbr"
+                            width="100%"
+                            height="450"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0 w-full h-full rounded-lg"
+                        ></iframe>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-gray-300 mb-2">Estamos localizados dentro do Shopping Cidade São Paulo, com fácil acesso e estacionamento disponível.</p>
+                        <a href="https://goo.gl/maps/YourCustomLink"  class="inline-flex items-center text-primary hover:underline">
+                            <span>Como chegar</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Perguntas Frequentes -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Perguntas Frequentes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Preciso fazer reserva?</h3>
+                        <p class="text-gray-300">Recomendamos reservas para grupos de 4 ou mais pessoas, especialmente nos finais de semana. Para reservas, utilize nosso formulário de contato ou ligue diretamente.</p>
+                    </div>
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Vocês fazem delivery?</h3>
+                        <p class="text-gray-300">Sim! Oferecemos serviço de delivery para toda a região. Faça seu pedido pelo telefone ou pelos aplicativos parceiros.</p>
+                    </div>
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Aceitam cartões de crédito?</h3>
+                        <p class="text-gray-300">Aceitamos todas as principais bandeiras de cartões de crédito e débito, além de PIX e dinheiro em espécie.</p>
+                    </div>
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Têm opções vegetarianas?</h3>
+                        <p class="text-gray-300">Sim, oferecemos diversas opções vegetarianas em nosso cardápio, incluindo sushis e pratos quentes especiais.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chamada para Ação -->
+            <section class="text-center animate-fade-in">
+                <div class="max-w-2xl mx-auto bg-darkGray bg-opacity-80 p-12 rounded-lg shadow-2xl border border-lightGray">
+                    <h2 class="text-3xl font-bold text-primary mb-6 font-script">Estamos esperando por você!</h2>
+                    <p class="text-xl text-gray-300 mb-8">Venha experimentar a autêntica culinária japonesa em um ambiente elegante e acolhedor.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="cardapio.html" class="btn-outline inline-block px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">
+                            Ver Cardápio
+                        </a>
+                        <a href="tel:+551192SUSHI00" class="btn-primary inline-block px-6 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300">
+                            Ligar Agora
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="bg-darkGray text-gray-200 p-8 border-t border-lightGray">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Informação de Contato -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Contato</h3>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📍</span> Avenida Paulista, 1230 (Dentro do Shopping Cidade São Paulo)</p>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📞</span> (11) 1234-5678</p>
+                    <p class="text-gray-400"><span class="text-primary mr-2">📧</span> contato@restaurantesakura.com.br</p>
+                </div>
+                
+                <!-- Horário de Funcionamento -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Horário de Funcionamento</h3>
+                    <p class="text-gray-400 mb-2">Segunda a Sexta: 18h - 23h</p>
+                    <p class="text-gray-400 mb-2">Sábados e Domingos: 12h - 00h</p>
+                    <p class="text-gray-400">Feriados: 12h - 22h</p>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-semibold mb-2 text-primary">Reservas</h4>
+                        <a href="pages/reserva.html" class="btn-outline inline-block px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">Fazer Reserva</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 mt-8 pt-6 border-t border-gray-800">
+                &copy; 2025 Sushi Paraíso. Todos os direitos reservados.
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="src/js/script.js"></script>
 </body>
 </html>
