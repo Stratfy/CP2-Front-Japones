@@ -3,126 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas - Sakura Sushi</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/reserva.css">
-    <!-- Adicionar link para biblioteca de ícones, se necessário (ex: Font Awesome) -->
+    <title>Reservas | Sushi Paraíso</title>
+    <!-- Ícone da Página -->
+    <link rel="icon" href="../src/assets/icone_pagina.png">
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind CSS (Inline) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37', // Dourado elegante
+                        dark: '#0A0A0A',    // Preto principal
+                        darkGray: '#121212', // Cinza escuro
+                        lightGray: '#2A2A2A' // Cinza claro
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['"Dancing Script"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link para o CSS personalizado -->
+    <link rel="stylesheet" href="../src/css/estilo.css">
 </head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <!-- <img src="../assets/img/logo-sakura.png" alt="Logo Restaurante Sakura"> -->
-                <h1><a href="../../index.html">Sakura Sushi</a></h1>
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html" class="active">Reservas</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="page-title-section">
-            <div class="container">
-                <h2 class="page-main-title">Faça Sua Reserva no Sakura Sushi</h2>
-                <p class="page-subtitle">Garanta sua mesa em nosso ambiente acolhedor e desfrute de uma experiência gastronômica única no Sakura.</p>
-            </div>
-        </section>
-
-        <section id="reserva-form-section" class="reserva-section section-padding">
-            <div class="container container-flex-gap-wrap">
-                <div class="form-container flex-item-grow-2 min-width-300">
-                    <h3 class="section-subtitle">Preencha os Dados da Reserva no Sakura</h3>
-                    <form id="form-reserva" action="#" method="post" class="contact-form">
-                        <div class="form-group">
-                            <label for="nome-reserva" class="form-label">Nome Completo para a Reserva:</label>
-                            <input type="text" id="nome-reserva" name="nomeReserva" required placeholder="Seu nome completo">
-                        </div>
-                        <div class="form-group">
-                            <label for="email-reserva" class="form-label">Seu Email para Contato:</label>
-                            <input type="email" id="email-reserva" name="emailReserva" required placeholder="seuemail@exemplo.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone-reserva" class="form-label">Telefone para Contato (com DDD):</label>
-                            <input type="tel" id="telefone-reserva" name="telefoneReserva" required placeholder="(XX) XXXXX-XXXX">
-                        </div>
-                        <div class="form-group-inline">
-                            <div class="form-group flex-item">
-                                <label for="data-reserva" class="form-label">Data da Reserva:</label>
-                                <input type="date" id="data-reserva" name="dataReserva" required>
-                            </div>
-                            <div class="form-group flex-item">
-                                <label for="hora-reserva" class="form-label">Horário da Reserva:</label>
-                                <input type="time" id="hora-reserva" name="horaReserva" required min="12:00" max="22:00">
-                                <small class="form-text-muted">Atendemos das 12h às 22h para reservas.</small>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="numero-pessoas" class="form-label">Número de Pessoas:</label>
-                            <input type="number" id="numero-pessoas" name="numeroPessoas" min="1" max="20" required placeholder="Ex: 4">
-                            <small class="form-text-muted">Para grupos maiores de 20, contate-nos.</small>
-                        </div>
-                        <div class="form-group form-group-textarea">
-                            <label for="observacoes-reserva" class="form-label">Observações Adicionais (Opcional):</label>
-                            <textarea id="observacoes-reserva" name="observacoesReserva" rows="4" placeholder="Ex: Preferência por mesa próxima à janela, alguma restrição alimentar, etc."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit-form">Solicitar Reserva no Sakura</button>
-                    </form>
+<body class="bg-dark text-gray-100">
+    <!-- Div principal com overlay e conteúdo -->
+    <div class="relative z-10 min-h-screen flex flex-col bg-dark">
+        <!-- Cabeçalho -->
+        <header class="py-6 px-8 bg-gradient-to-b from-black to-transparent">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="../src/assets/icone_pagina.png" alt="Logo Sushi Paraíso" class="h-12 mr-3">
+                    <div class="text-3xl font-bold text-primary font-script">
+                        Sushi Paraíso
+                    </div>
                 </div>
-                <aside class="info-sidebar flex-item-grow-1 min-width-280 bg-light-accent sidebar-padding rounded-corners">
-                    <h3 class="sidebar-title">Informações Importantes - Sakura</h3>
-                    <div class="info-box info-box-highlight">
-                        <p class="sidebar-text"><strong>Confirmação:</strong> Sua reserva no Sakura Sushi estará sujeita à confirmação por nossa equipe via telefone ou email em até 24 horas.</p>
-                        <p class="sidebar-text"><strong>Tolerância:</strong> Pedimos a gentileza de respeitar o horário agendado. Haverá uma tolerância máxima de 15 minutos de atraso.</p>
-                        <p class="sidebar-text"><strong>Grupos Grandes:</strong> Para reservas de grupos com mais de 20 pessoas no Sakura, solicitamos que entre em contato diretamente.</p>
-                        <p class="sidebar-text"><strong>Eventos Especiais:</strong> Gostaria de celebrar uma data especial no Sakura? Informe no campo de observações.</p>
-                    </div>
-                    <div class="image-reserva-destaque text-center">
-                        <!-- <img src="../assets/img/ambiente-restaurante-sakura-reserva.jpg" alt="Ambiente elegante do Restaurante Sakura" class="img-responsive-rounded img-mt-1"> -->
-                        <p class="text-italic text-muted mt-1"><em>Esperamos por você para uma experiência memorável no Sakura!</em></p>
-                    </div>
-                </aside>
+                <!-- Navegação -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="../index.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="cardapio.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Cardápio</a></li>
+                        <li><a href="sobre.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Sobre</a></li>
+                        <li><a href="contato.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Contato</a></li>
+                        <li><a href="reserva.html" class="nav-link text-primary border-b-2 border-primary">Reservas</a></li>
+                    </ul>
+                </nav>
+                <!-- Menu Mobile -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </section>
-    </main>
+        </header>
 
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <p><strong>Sakura Sushi</strong></p>
-                <p>Avenida Paulista, 1230 (dentro do Shopping Cidade São Paulo)</p>
-                <p>Bairro Bela vista - SP</p>
-                <p>Telefone: (11) 9 SAKURA-00</p>
-                <p>Email: <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
-            </div>
-            <div class="footer-social">
-                <p>Siga-nos:</p>
-                <a href="#" aria-label="Facebook">FB</a> <!-- Usar ícones aqui -->
-                <a href="#" aria-label="Instagram">IG</a> <!-- Usar ícones aqui -->
-            </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-copyright">
-            <p>&copy; 2025 Sakura Sushi. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        <!-- Conteúdo Principal - Reservas -->
+        <main class="container mx-auto px-6 py-12 flex-grow">
+            <h1 class="text-5xl font-bold text-primary mb-6 text-center font-script animate-fade-in">Faça Sua Reserva</h1>
+            <p class="text-xl text-gray-300 mb-12 text-center max-w-3xl mx-auto animate-fade-in">Garanta sua mesa em nosso ambiente acolhedor e desfrute de uma experiência gastronômica única com a autêntica culinária japonesa.</p>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/reserva.js"></script>
+            <div class="section-divider"></div>
+
+            <section class="mb-16 animate-slide-up">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Formulário de Reserva (2/3 da largura em telas grandes) -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-darkGray p-8 rounded-xl shadow-xl border border-lightGray">
+                            <h2 class="text-3xl font-bold text-primary mb-6">Preencha os Dados da Reserva</h2>
+                            <form action="#" method="POST" class="space-y-6">
+                                <div>
+                                    <label for="nome" class="block text-sm font-medium text-gray-300 mb-2">Nome Completo para a Reserva</label>
+                                    <input type="text" id="nome" name="nome" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="Seu nome completo">
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email para Contato</label>
+                                        <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="seuemail@exemplo.com">
+                                    </div>
+                                    <div>
+                                        <label for="telefone" class="block text-sm font-medium text-gray-300 mb-2">Telefone para Contato</label>
+                                        <input type="tel" id="telefone" name="telefone" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="(XX) XXXXX-XXXX">
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="data" class="block text-sm font-medium text-gray-300 mb-2">Data da Reserva</label>
+                                        <input type="date" id="data" name="data" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required>
+                                    </div>
+                                    <div>
+                                        <label for="horario" class="block text-sm font-medium text-gray-300 mb-2">Horário da Reserva</label>
+                                        <input type="time" id="horario" name="horario" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required min="12:00" max="22:00">
+                                        <p class="text-xs text-gray-400 mt-1">Atendemos das 12h às 22h para reservas.</p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="pessoas" class="block text-sm font-medium text-gray-300 mb-2">Número de Pessoas</label>
+                                    <input type="number" id="pessoas" name="pessoas" min="1" max="20" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" required placeholder="Ex: 4">
+                                    <p class="text-xs text-gray-400 mt-1">Para grupos maiores de 20 pessoas, entre em contato diretamente pelo telefone.</p>
+                                </div>
+                                
+                                <div>
+                                    <label for="ocasiao" class="block text-sm font-medium text-gray-300 mb-2">Ocasião (Opcional)</label>
+                                    <select id="ocasiao" name="ocasiao" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary">
+                                        <option value="">Selecione uma ocasião (opcional)</option>
+                                        <option value="aniversario">Aniversário</option>
+                                        <option value="reuniao">Reunião de Negócios</option>
+                                        <option value="romantico">Jantar Romântico</option>
+                                        <option value="familiar">Reunião Familiar</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="observacoes" class="block text-sm font-medium text-gray-300 mb-2">Observações Adicionais (Opcional)</label>
+                                    <textarea id="observacoes" name="observacoes" rows="4" class="w-full px-4 py-3 rounded-lg bg-black text-white border border-lightGray focus:outline-none focus:border-primary" placeholder="Ex: Preferência por mesa próxima à janela, alguma restrição alimentar, etc."></textarea>
+                                </div>
+                                
+                                <div class="text-center pt-4">
+                                    <button type="submit" class="btn-primary inline-block px-8 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                                        Solicitar Reserva
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Informações Importantes (1/3 da largura em telas grandes) -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-darkGray p-8 rounded-xl shadow-xl border border-lightGray sticky top-8">
+                            <h2 class="text-2xl font-bold text-primary mb-6">Informações Importantes</h2>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-black bg-opacity-50 p-4 rounded-lg border-l-4 border-primary">
+                                    <h3 class="text-lg text-primary font-semibold mb-2">Confirmação</h3>
+                                    <p class="text-gray-300">Sua reserva estará sujeita à confirmação por nossa equipe via telefone ou email em até 24 horas.</p>
+                                </div>
+                                
+                                <div class="bg-black bg-opacity-50 p-4 rounded-lg border-l-4 border-primary">
+                                    <h3 class="text-lg text-primary font-semibold mb-2">Tolerância</h3>
+                                    <p class="text-gray-300">Pedimos a gentileza de respeitar o horário agendado. Haverá uma tolerância máxima de 15 minutos de atraso.</p>
+                                </div>
+                                
+                                <div class="bg-black bg-opacity-50 p-4 rounded-lg border-l-4 border-primary">
+                                    <h3 class="text-lg text-primary font-semibold mb-2">Grupos Grandes</h3>
+                                    <p class="text-gray-300">Para reservas de grupos com mais de 20 pessoas, solicitamos que entre em contato diretamente pelo telefone.</p>
+                                </div>
+                                
+                                <div class="bg-black bg-opacity-50 p-4 rounded-lg border-l-4 border-primary">
+                                    <h3 class="text-lg text-primary font-semibold mb-2">Eventos Especiais</h3>
+                                    <p class="text-gray-300">Gostaria de celebrar uma data especial? Informe no campo de observações para preparamos algo especial.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 text-center">
+                                <img src="../src/assets/img/ambiente_restaurante.jpg" alt="Ambiente elegante do Restaurante" class="w-full h-auto rounded-lg shadow-lg">
+                                <p class="text-gray-400 italic mt-3">Esperamos por você para uma experiência memorável!</p>
+                            </div>
+                            
+                            <div class="mt-8 pt-6 border-t border-lightGray">
+                                <h3 class="text-xl font-bold mb-4 text-primary">Horário de Funcionamento</h3>
+                                <p class="text-gray-400 mb-2"><strong>Terça a Sexta:</strong> 12:00 - 15:00 | 18:00 - 23:00</p>
+                                <p class="text-gray-400 mb-2"><strong>Sábados:</strong> 12:00 - 23:30</p>
+                                <p class="text-gray-400 mb-2"><strong>Domingos e Feriados:</strong> 12:00 - 17:00</p>
+                                <p class="text-gray-400"><strong>Segundas:</strong> Fechado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Mesas Disponíveis -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Ambientes Disponíveis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/img/mesa_tradicional.jpg" alt="Mesa Tradicional" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Mesa Tradicional</h3>
+                            <p class="text-gray-300 mb-4">Ideal para casais e pequenos grupos de até 4 pessoas. Ambiente aconchegante com vista para o jardim japonês.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/img/mesa_tatami.jpg" alt="Sala Tatami" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Sala Tatami</h3>
+                            <p class="text-gray-300 mb-4">Experiência tradicional japonesa com assentos baixos e ambiente reservado. Ideal para grupos de 4 a 8 pessoas.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/img/balcao_sushi.jpg" alt="Balcão de Sushi" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Balcão de Sushi</h3>
+                            <p class="text-gray-300 mb-4">Assista à preparação dos pratos diretamente com nossos sushimen. Experiência imersiva para até 10 pessoas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Perguntas Frequentes sobre Reservas -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Perguntas Frequentes sobre Reservas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Com quanto tempo de antecedência devo reservar?</h3>
+                        <p class="text-gray-300">Recomendamos fazer reservas com pelo menos 2 dias de antecedência. Para finais de semana e feriados, sugerimos 1 semana de antecedência.</p>
+                    </div>
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Preciso pagar antecipadamente?</h3>
+                        <p class="text-gray-300">Não é necessário pagamento antecipado para reservas regulares. Para eventos privados ou grupos grandes, pode ser solicitado um depósito.</p>
+                    </div>
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Como posso cancelar minha reserva?</h3>
+                        <p class="text-gray-300">Cancelamentos podem ser feitos até 24 horas antes do horário reservado, por telefone ou email, sem qualquer custo adicional.</p>
+                    </div>
+                    <div class="bg-darkGray p-6 rounded-xl shadow-xl border border-lightGray">
+                        <h3 class="text-xl text-primary font-semibold mb-3">Posso solicitar um menu especial?</h3>
+                        <p class="text-gray-300">Sim, para ocasiões especiais podemos preparar menus personalizados. Informe no campo de observações ou entre em contato diretamente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chamada para Ação -->
+            <section class="text-center animate-fade-in">
+                <div class="max-w-2xl mx-auto bg-darkGray bg-opacity-80 p-12 rounded-lg shadow-2xl border border-lightGray">
+                    <h2 class="text-3xl font-bold text-primary mb-6 font-script">Prefere reservar por telefone?</h2>
+                    <p class="text-xl text-gray-300 mb-8">Entre em contato diretamente com nossa equipe para verificar disponibilidade ou para reservas especiais.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="tel:+551192SUSHI00" class="btn-primary inline-block px-6 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300">
+                            Ligar Agora: (11) 9 SUSHI-00
+                        </a>
+                        <a href="https://wa.me/551192SUSHI01" class="btn-outline inline-block px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">
+                            WhatsApp: (11) 9 SUSHI-01
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="bg-darkGray text-gray-200 p-8 border-t border-lightGray">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Informação de Contato -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Contato</h3>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📍</span> Avenida Paulista, 1230 (Dentro do Shopping Cidade São Paulo)</p>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📞</span> (11) 1234-5678</p>
+                    <p class="text-gray-400"><span class="text-primary mr-2">📧</span> contato@restaurantesakura.com.br</p>
+                </div>
+                
+                <!-- Horário de Funcionamento -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Horário de Funcionamento</h3>
+                    <p class="text-gray-400 mb-2">Segunda a Sexta: 18h - 23h</p>
+                    <p class="text-gray-400 mb-2">Sábados e Domingos: 12h - 00h</p>
+                    <p class="text-gray-400">Feriados: 12h - 22h</p>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-semibold mb-2 text-primary">Reservas</h4>
+                        <a href="pages/reserva.html" class="btn-outline inline-block px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">Fazer Reserva</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 mt-8 pt-6 border-t border-gray-800">
+                &copy; 2025 Sakura Sushi. Todos os direitos reservados.
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="src/js/script.js"></script>
 </body>
 </html>
