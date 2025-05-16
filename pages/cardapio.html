@@ -3,270 +3,592 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardápio - Sakura Sushi</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/cardapio.css">
-    <!-- Adicionar link para biblioteca de ícones, se necessário (ex: Font Awesome) -->
+    <title>Cardápio | Sakura Sushi</title>
+    <!-- Ícone da Página -->
+    <link rel="icon" href="../src/assets/icone_pagina.png">
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração do Tailwind CSS (Inline) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37', // Dourado elegante
+                        dark: '#0A0A0A',    // Preto principal
+                        darkGray: '#121212', // Cinza escuro
+                        lightGray: '#2A2A2A' // Cinza claro
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['"Dancing Script"', 'cursive']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link para o CSS personalizado -->
+    <link rel="stylesheet" href="../src/css/estilo.css">
 </head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <!-- <img src="../assets/img/logo-sakura.png" alt="Logo Restaurante Sakura"> -->
-                <h1><a href="../../index.html">Sakura Sushi</a></h1>
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html" class="active">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="page-title-section">
-            <div class="container">
-                <h2 class="page-main-title">Cardápio Exclusivo do Sakura Sushi</h2>
-                <p class="page-subtitle">Delicie-se com uma variedade de pratos preparados com os ingredientes mais frescos e o toque especial do Sakura.</p>
-            </div>
-        </section>
-
-        <section id="entradas" class="menu-section section-padding">
-            <div class="container">
-                <h3 class="section-title text-center">Entradas Delicadas Sakura</h3>
-                <div class="menu-grid">
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/entrada-sunomono-sakura.jpg" alt="Sunomono refrescante Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Sunomono Tradicional Sakura</h4>
-                            <p class="item-description">Salada de pepino agridoce, finamente fatiado, com kani desfiado e gergelim torrado, ao estilo Sakura.</p>
-                            <span class="item-price">R$ 19,00</span>
-                        </div>
-                    </article>
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/entrada-guioza-sakura.jpg" alt="Guioza saboroso Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Guioza Artesanal Sakura (6 unidades)</h4>
-                            <p class="item-description">Pastelzinho japonês cozido no vapor e levemente grelhado, recheado com carne suína e legumes frescos, receita Sakura.</p>
-                            <span class="item-price">R$ 27,00</span>
-                        </div>
-                    </article>
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/entrada-harumaki-sakura.jpg" alt="Harumaki crocante Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Harumaki de Legumes Sakura (2 unidades)</h4>
-                            <p class="item-description">Rolinhos primavera crocantes recheados com uma seleção de legumes frescos e temperos orientais, especialidade Sakura.</p>
-                            <span class="item-price">R$ 18,00</span>
-                        </div>
-                    </article>
+<body class="bg-dark text-gray-100">
+    <!-- Div principal com overlay e conteúdo -->
+    <div class="relative z-10 min-h-screen flex flex-col bg-dark">
+        <!-- Cabeçalho -->
+        <header class="py-6 px-8 bg-gradient-to-b from-black to-transparent">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="../src/assets/icone_pagina.png" alt="Logo Sushi Paraíso" class="h-12 mr-3">
+                    <div class="text-3xl font-bold text-primary font-script">
+                        Sakura Sushi
+                    </div>
+                </div>
+                <!-- Navegação -->
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="../index.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="cardapio.html" class="nav-link text-primary border-b-2 border-primary">Cardápio</a></li>
+                        <li><a href="sobre.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Sobre</a></li>
+                        <li><a href="contato.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Contato</a></li>
+                        <li><a href="reserva.html" class="nav-link text-white hover:text-primary transition-colors duration-300">Reservas</a></li>
+                    </ul>
+                </nav>
+                <!-- Menu Mobile -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-button text-white focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <section id="sushis-sashimis" class="menu-section-alt section-padding bg-light-accent">
-            <div class="container">
-                <h3 class="section-title text-center">Sushis & Sashimis Frescos do Sakura</h3>
-                <div class="menu-grid">
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/sushi-combinado-chef-sakura.jpg" alt="Combinado do Chef Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Combinado do Chef Sakura (30 peças)</h4>
-                            <p class="item-description">Uma seleção especial do nosso sushiman com os melhores sushis e sashimis do dia, frescos e variados, com a assinatura Sakura.</p>
-                            <span class="item-price">R$ 99,00</span>
+        <!-- Conteúdo Principal - Cardápio -->
+        <main class="container mx-auto px-6 py-12 flex-grow">
+            <h1 class="text-5xl font-bold text-primary mb-12 text-center font-script animate-fade-in">Nosso Cardápio Completo</h1>
+
+            <div class="section-divider"></div>
+
+            <!-- Entradas -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Entradas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item do Cardápio: Sunomono -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/entrada01.png" alt="Sunomono Tradicional" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         </div>
-                    </article>
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/sashimi-salmao-premium-sakura.jpg" alt="Sashimi de Salmão Premium Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Sashimi de Salmão Premium Sakura (12 fatias)</h4>
-                            <p class="item-description">Finas e suculentas fatias de salmão fresco da mais alta qualidade, servidas com wasabi e gengibre, padrão Sakura.</p>
-                            <span class="item-price">R$ 59,00</span>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Sunomono Tradicional</h3>
+                            <p class="text-gray-300 mb-4 h-20">Salada de pepino agridoce, finamente fatiado, com kani desfiado e gergelim torrado.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 19,00</span>
                         </div>
-                    </article>
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/sushi-hot-roll-sakura.jpg" alt="Hot Roll Especial Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Hot Roll Especial Crocante Sakura (10 unidades)</h4>
-                            <p class="item-description">Sushi empanado e frito, recheado com salmão, cream cheese e cebolinha, coberto com molho tarê, o favorito do Sakura.</p>
-                            <span class="item-price">R$ 40,00</span>
+                    </div>
+                    
+                    <!-- Item do Cardápio: Guioza -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/entrada02.png" alt="Guioza Artesanal" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         </div>
-                    </article>
-                     <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/temaki-salmao-completo-sakura.jpg" alt="Temaki Salmão Completo Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Temaki Salmão Completo Sakura</h4>
-                            <p class="item-description">Generoso cone de alga nori recheado com arroz japonês, cubos de salmão fresco, cream cheese e cebolinha, no capricho Sakura.</p>
-                            <span class="item-price">R$ 35,00</span>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Guioza Artesanal (6 unidades)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Pastelzinho japonês cozido no vapor e levemente grelhado, recheado com carne suína e legumes frescos.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 27,00</span>
                         </div>
-                    </article>
+                    </div>
+                    
+                    <!-- Item do Cardápio: Harumaki -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/entrada03.png" alt="Harumaki de Legumes" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Harumaki de Legumes (2 unidades)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Rolinhos primavera crocantes recheados com uma seleção de legumes frescos e temperos orientais.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 18,00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Seção de Sushis e Sashimis -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Sushis e Sashimis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item do Cardápio 1 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/prato01.png" alt="Combinado Especial" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Combinado Especial (20 peças)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Seleção variada dos melhores sushis e sashimis frescos do dia.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 120,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item do Cardápio 2 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/prato02.png" alt="Sashimi de Salmão" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Sashimi de Salmão (10 fatias)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Fatias frescas e suculentas de salmão de alta qualidade.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 65,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item do Cardápio 3 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/prato03.png" alt="Niguiri de Atum" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Niguiri de Atum (6 unidades)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Arroz temperado com fatias frescas de atum.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 48,00</span>
+                        </div>
+                    </div>
+
+                    <!-- NOVO Item: Hot Roll Especial -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/sushi01.png" alt="Hot Roll Especial" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Hot Roll Especial (10 unidades)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Sushi empanado e frito, recheado com salmão, cream cheese e cebolinha, coberto com molho tarê.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 40,00</span>
+                        </div>
+                    </div>
+
+                    <!-- NOVO Item: Temaki Salmão -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/sushi02.png" alt="Temaki Salmão Completo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Temaki Salmão Completo</h3>
+                            <p class="text-gray-300 mb-4 h-20">Generoso cone de alga nori recheado com arroz japonês, cubos de salmão fresco, cream cheese e cebolinha.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 35,00</span>
+                        </div>
+                    </div>
+
+                    <!-- NOVO Item: Uramaki Filadélfia -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/sushi03.png" alt="Uramaki Filadélfia" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Uramaki Filadélfia (8 unidades)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Sushi enrolado com arroz por fora, recheado com salmão fresco e cream cheese.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 38,00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Seção de Pratos Quentes -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Pratos Quentes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item do Cardápio 4 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/prato04.png" alt="Yakisoba Tradicional" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Yakisoba Tradicional</h3>
+                            <p class="text-gray-300 mb-4 h-20">Macarrão frito com legumes frescos e carne (frango ou boi) ao molho especial.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 55,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item do Cardápio 5 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/prato05.png" alt="Tempura Misto" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Tempura Misto</h3>
+                            <p class="text-gray-300 mb-4 h-20">Seleção de camarões e vegetais empanados e fritos, crocantes por fora e macios por dentro.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 70,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item do Cardápio 6 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/prato06.png" alt="Lamen Clássico" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Lamen Clássico</h3>
+                            <p class="text-gray-300 mb-4 h-20">Sopa rica e saborosa com macarrão, carne de porco, ovo cozido e vegetais.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 62,00</span>
+                        </div>
+                    </div>
+
+                    <!-- Yakisoba de Frutos do Mar -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/quente01.png" alt="Yakisoba de Frutos do Mar" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Yakisoba de Frutos do Mar</h3>
+                            <p class="text-gray-300 mb-4 h-20">Macarrão oriental salteado com camarões, lula, polvo e legumes frescos em molho especial da casa.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 68,00</span>
+                        </div>
+                    </div>
+
+                    <!-- Lamen Tonkotsu -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/quente02.png" alt="Lamen Tonkotsu Cremoso" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Lamen Tonkotsu Cremoso</h3>
+                            <p class="text-gray-300 mb-4 h-20">Caldo rico e encorpado à base de porco, servido com macarrão artesanal, chashu, ovo marinado e nori.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 50,00</span>
+                        </div>
+                    </div>
+
+                    <!-- Shimeji na Manteiga -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/quente03.png" alt="Shimeji na Manteiga" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Shimeji na Manteiga</h3>
+                            <p class="text-gray-300 mb-4 h-20">Cogumelos shimeji salteados na manteiga com shoyu, perfeito para acompanhar outros pratos.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 32,00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Seção de Bebidas -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Bebidas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item do Cardápio 7 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/bebida01.png" alt="Saquê Tradicional" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Saquê Tradicional</h3>
+                            <p class="text-gray-300 mb-4 h-20">Saquê Junmai de alta qualidade, servido quente ou frio.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 35,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item do Cardápio 8 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/bebida02.png" alt="Chá Verde Gelado" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Chá Verde Gelado</h3>
+                            <p class="text-gray-300 mb-4 h-20">Refrescante chá verde japonês, perfeito para acompanhar a refeição.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 12,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item do Cardápio 9 -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/bebida03.png" alt="Refrigerantes Diversos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Refrigerantes</h3>
+                            <p class="text-gray-300 mb-4 h-20">Coca-Cola, Guaraná, Soda Limonada, etc.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 8,00</span>
+                        </div>
+                    </div>
+
+                    <!-- Cerveja Japonesa -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/bebida04.png" alt="Cerveja Japonesa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Cerveja Japonesa Kirin</h3>
+                            <p class="text-gray-300 mb-4 h-20">Cerveja premium japonesa, perfeita para harmonizar com pratos orientais.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 18,00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Sobremesas -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Sobremesas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Item: Petit Gateau -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/sobremesa01.png" alt="Petit Gateau" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Petit Gateau com Sorvete</h3>
+                            <p class="text-gray-300 mb-4 h-20">Bolo de chocolate com recheio cremoso e
+                            <p class="text-gray-300 mb-4 h-20">Bolo de chocolate com recheio cremoso e sorvete de creme artesanal.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 28,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item: Tempurá de Sorvete -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/sobremesa02.png" alt="Tempurá de Sorvete" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Tempurá de Sorvete</h3>
+                            <p class="text-gray-300 mb-4 h-20">Sorvete de baunilha empanado e frito, crocante por fora e gelado por dentro.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 30,00</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item: Mochi -->
+                    <div class="menu-item bg-darkGray rounded-xl shadow-xl border border-lightGray overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                        <div class="h-48 overflow-hidden">
+                            <img src="../src/assets/cardapio/sobremesa03.png" alt="Mochi Tradicional" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl text-primary font-semibold mb-2">Mochi Tradicional (3 unidades)</h3>
+                            <p class="text-gray-300 mb-4 h-20">Bolinho de arroz japonês com recheio de sorvete em sabores variados.</p>
+                            <span class="text-2xl text-primary font-bold block">R$ 25,00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Seção de Promoções  -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Promoções Especiais</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Promoção 1 -->
+                    <div class="menu-item bg-darkGray p-6 rounded-xl shadow-xl border border-primary overflow-hidden">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/3 h-40 mb-4 md:mb-0 md:mr-6 overflow-hidden rounded-lg">
+                                <img src="../src/assets/img/promocao_combinado.jpg" alt="Promoção Combinado" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="flex-grow text-center md:text-left">
+                                <h3 class="text-xl text-primary font-semibold mb-2">Happy Hour Sushi</h3>
+                                <p class="text-gray-300 mb-3">Combinado de 30 peças selecionadas + 2 saquês por um preço especial!</p>
+                                <span class="text-2xl text-primary font-bold">R$ 180,00</span>
+                                <p class="text-sm text-gray-400 mt-1">Válido de Segunda a Quinta, das 18h às 20h.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Promoção 2 -->
+                    <div class="menu-item bg-darkGray p-6 rounded-xl shadow-xl border border-primary overflow-hidden">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/3 h-40 mb-4 md:mb-0 md:mr-6 overflow-hidden rounded-lg">
+                                <img src="../src/assets/img/promocao_ramen.jpg" alt="Promoção Ramen" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="flex-grow text-center md:text-left">
+                                <h3 class="text-xl text-primary font-semibold mb-2">Terça do Ramen</h3>
+                                <p class="text-gray-300 mb-3">Qualquer Ramen do cardápio com 15% de desconto toda terça-feira!</p>
+                                <span class="text-2xl text-primary font-bold">15% OFF</span>
+                                <p class="text-sm text-gray-400 mt-1">Válido apenas às terças-feiras.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rodízio Executivo -->
+                    <div class="menu-item bg-darkGray p-6 rounded-xl shadow-xl border border-primary overflow-hidden">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/3 h-40 mb-4 md:mb-0 md:mr-6 overflow-hidden rounded-lg">
+                                <img src="../src/assets/img/promocao_rodizio.jpg" alt="Rodízio Executivo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="flex-grow text-center md:text-left">
+                                <h3 class="text-xl text-primary font-semibold mb-2">Rodízio Executivo (Almoço)</h3>
+                                <p class="text-gray-300 mb-3">Desfrute de uma variedade incrível de nossos pratos por um preço fixo.</p>
+                                <span class="text-2xl text-primary font-bold">R$ 109,90</span>
+                                <p class="text-sm text-gray-400 mt-1">Válido de Terça a Sexta, das 12h às 15h.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Combo Casal -->
+                    <div class="menu-item bg-darkGray p-6 rounded-xl shadow-xl border border-primary overflow-hidden">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/3 h-40 mb-4 md:mb-0 md:mr-6 overflow-hidden rounded-lg">
+                                <img src="../src/assets/img/promocao_casal.jpg" alt="Combo Casal" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="flex-grow text-center md:text-left">
+                                <h3 class="text-xl text-primary font-semibold mb-2">Combo Casal (Noites)</h3>
+                                <p class="text-gray-300 mb-3">Combinado especial (40 peças), uma entrada à escolha e duas sobremesas.</p>
+                                <span class="text-2xl text-primary font-bold">R$ 190,00</span>
+                                <p class="text-sm text-gray-400 mt-1">Perfeito para compartilhar a dois.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Tabela de Preços Detalhada -->
+            <section class="mb-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Tabela de Preços (Itens Individuais)</h2>
+                <div class="overflow-x-auto bg-darkGray rounded-xl shadow-xl border border-lightGray p-6">
+                    <table class="w-full text-left">
+                        <thead class="border-b border-lightGray">
+                            <tr>
+                                <th class="py-4 px-6 text-primary font-semibold">Item</th>
+                                <th class="py-4 px-6 text-primary font-semibold">Descrição Resumida</th>
+                                <th class="py-4 px-6 text-primary font-semibold text-right">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-lightGray">
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Niguiri Salmão (dupla)</td>
+                                <td class="py-4 px-6 text-gray-300">Bolinho de arroz coberto com fatia de salmão.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 16,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Niguiri Atum Fresco (dupla)</td>
+                                <td class="py-4 px-6 text-gray-300">Bolinho de arroz coberto com fatia de atum fresco.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 17,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Sashimi Polvo (5 fatias)</td>
+                                <td class="py-4 px-6 text-gray-300">Fatias de polvo cozido e temperado.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 35,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Uramaki Filadélfia (8 unidades)</td>
+                                <td class="py-4 px-6 text-gray-300">Sushi enrolado com arroz por fora, salmão e cream cheese.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 38,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Gyoza de Legumes (6 unidades)</td>
+                                <td class="py-4 px-6 text-gray-300">Pastelzinho japonês com recheio de legumes.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 25,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Porção de Shimeji na Manteiga</td>
+                                <td class="py-4 px-6 text-gray-300">Cogumelos shimeji salteados na manteiga com shoyu.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 32,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Cerveja Japonesa Kirin Ichiban</td>
+                                <td class="py-4 px-6 text-gray-300">Cerveja premium japonesa (Long Neck).</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 18,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Saquê Nacional (Dose)</td>
+                                <td class="py-4 px-6 text-gray-300">Dose de saquê nacional selecionado.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 15,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Água Mineral (com ou sem gás)</td>
+                                <td class="py-4 px-6 text-gray-300">Garrafa de água mineral.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 7,00</td>
+                            </tr>
+                            <tr class="hover:bg-black/30 transition-colors">
+                                <td class="py-4 px-6 text-white">Refrigerante Lata (diversos)</td>
+                                <td class="py-4 px-6 text-gray-300">Refrigerantes em lata.</td>
+                                <td class="py-4 px-6 text-primary font-bold text-right">R$ 8,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Chamada para Ação -->
+            <section class="text-center animate-fade-in">
+                 <div class="max-w-2xl mx-auto bg-darkGray bg-opacity-80 p-12 rounded-lg shadow-2xl border border-lightGray">
+                    <h2 class="text-3xl font-bold text-primary mb-6 font-script">Pronto para pedir?</h2>
+                    <p class="text-xl text-gray-300 mb-8">Faça sua reserva ou pedido online agora mesmo!</p>
+                    <a href="contato.html" class="btn-primary inline-block px-8 py-3 bg-primary text-black font-semibold rounded-full hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
+                        Fazer Pedido / Reserva
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="bg-darkGray text-gray-200 p-8 border-t border-lightGray">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Informação de Contato -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Contato</h3>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📍</span> Avenida Paulista, 1230 (Dentro do Shopping Cidade São Paulo)</p>
+                    <p class="text-gray-400 mb-2"><span class="text-primary mr-2">📞</span> (11) 1234-5678</p>
+                    <p class="text-gray-400"><span class="text-primary mr-2">📧</span> contato@restaurantesakura.com.br</p>
+                </div>
+                
+                <!-- Horário de Funcionamento -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Horário de Funcionamento</h3>
+                    <p class="text-gray-400 mb-2">Segunda a Sexta: 18h - 23h</p>
+                    <p class="text-gray-400 mb-2">Sábados e Domingos: 12h - 00h</p>
+                    <p class="text-gray-400">Feriados: 12h - 22h</p>
+                </div>
+                
+                <!-- Redes Sociais -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">Siga-nos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="social-icon text-white hover:text-primary transition-all">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-semibold mb-2 text-primary">Reservas</h4>
+                        <a href="pages/reserva.html" class="btn-outline inline-block px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-black transition-colors duration-300 rounded-full">Fazer Reserva</a>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section id="pratos-quentes" class="menu-section section-padding">
-            <div class="container">
-                <h3 class="section-title text-center">Pratos Quentes Saborosos do Sakura</h3>
-                <div class="menu-grid">
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/quente-yakisoba-frutosmar-sakura.jpg" alt="Yakisoba de Frutos do Mar Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Yakisoba Clássico de Frutos do Mar Sakura</h4>
-                            <p class="item-description">Macarrão oriental salteado com camarões, lula, polvo e legumes frescos em molho especial da casa Sakura.</p>
-                            <span class="item-price">R$ 68,00</span>
-                        </div>
-                    </article>
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/quente-tempura-misto-sakura.jpg" alt="Tempurá Misto Crocante Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Tempurá Misto Crocante Sakura</h4>
-                            <p class="item-description">Delicados pedaços de legumes frescos e camarões empanados em massa leve e fritos até a perfeição, ao modo Sakura.</p>
-                            <span class="item-price">R$ 60,00</span>
-                        </div>
-                    </article>
-                    <article class="menu-item-card card-style">
-                        <!-- <img src="../assets/img/quente-lamen-tonkotsu-sakura.jpg" alt="Lamen Tonkotsu Cremoso Sakura" class="menu-item-image"> -->
-                        <div class="menu-item-content">
-                            <h4 class="menu-item-title">Lamen Tonkotsu Cremoso Sakura</h4>
-                            <p class="item-description">Caldo rico e encorpado à base de porco, servido com macarrão artesanal, chashu, ovo marinado e nori, a alma do Sakura.</p>
-                            <span class="item-price">R$ 50,00</span>
-                        </div>
-                    </article>
-                </div>
+            <div class="text-center text-gray-400 mt-8 pt-6 border-t border-gray-800">
+                &copy; 2025 Sushi Paraíso. Todos os direitos reservados.
             </div>
-        </section>
+        </footer>
+    </div>
 
-        <section id="promocoes-cardapio" class="promo-section section-padding bg-light-accent">
-            <div class="container">
-                <h3 class="section-title text-center">Promoções Especiais do Sakura</h3>
-                <div class="promo-grid">
-                    <article class="promo-item card-style promo-card-highlight">
-                        <h4 class="promo-title">Rodízio Executivo Sakura (Almoço Ter-Sex)</h4>
-                        <p class="promo-description">Desfrute de uma variedade incrível de nossos pratos por um preço fixo. Válido das 12h às 15h no Sakura.</p>
-                        <span class="promo-price">R$ 109,90 por pessoa</span>
-                    </article>
-                    <article class="promo-item card-style promo-card-highlight">
-                        <h4 class="promo-title">Combo Casal Sakura (Noites)</h4>
-                        <p class="promo-description">Um combinado especial de sushis e sashimis (40 peças), uma entrada à escolha e duas sobremesas, para celebrar no Sakura.</p>
-                        <span class="promo-price">R$ 190,00 para o casal</span>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="tabela-precos-detalhada" class="menu-section-alt section-padding">
-            <div class="container">
-                <h3 class="section-title text-center">Tabela de Preços (Itens Individuais Selecionados no Sakura)</h3>
-                <table class="price-table">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Descrição Resumida</th>
-                            <th>Preço Unitário/Porção</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Niguiri Salmão Sakura (dupla)</td>
-                            <td>Bolinho de arroz coberto com fatia de salmão.</td>
-                            <td>R$ 16,00</td>
-                        </tr>
-                        <tr>
-                            <td>Niguiri Atum Fresco Sakura (dupla)</td>
-                            <td>Bolinho de arroz coberto com fatia de atum fresco.</td>
-                            <td>R$ 17,00</td>
-                        </tr>
-                        <tr>
-                            <td>Sashimi Polvo Sakura (5 fatias)</td>
-                            <td>Fatias de polvo cozido e temperado.</td>
-                            <td>R$ 35,00</td>
-                        </tr>
-                        <tr>
-                            <td>Uramaki Filadélfia Sakura (8 unidades)</td>
-                            <td>Sushi enrolado com arroz por fora, salmão e cream cheese.</td>
-                            <td>R$ 38,00</td>
-                        </tr>
-                        <tr>
-                            <td>Gyoza de Legumes Sakura (6 unidades)</td>
-                            <td>Pastelzinho japonês com recheio de legumes.</td>
-                            <td>R$ 25,00</td>
-                        </tr>
-                        <tr>
-                            <td>Porção de Shimeji na Manteiga Sakura</td>
-                            <td>Cogumelos shimeji salteados na manteiga com shoyu.</td>
-                            <td>R$ 32,00</td>
-                        </tr>
-                        <tr>
-                            <td>Cerveja Japonesa Kirin Ichiban (Long Neck)</td>
-                            <td>Cerveja premium japonesa.</td>
-                            <td>R$ 18,00</td>
-                        </tr>
-                        <tr>
-                            <td>Saquê Nacional Dose Sakura</td>
-                            <td>Dose de saquê nacional selecionado.</td>
-                            <td>R$ 15,00</td>
-                        </tr>
-                        <tr>
-                            <td>Água Mineral Sakura (com ou sem gás)</td>
-                            <td>Garrafa de água mineral.</td>
-                            <td>R$ 7,00</td>
-                        </tr>
-                        <tr>
-                            <td>Refrigerante Lata Sakura (diversos)</td>
-                            <td>Refrigerantes em lata.</td>
-                            <td>R$ 8,00</td>
-                        </tr>
-                         <tr>
-                            <td>Petit Gateau com Sorvete de Creme Sakura</td>
-                            <td>Bolo de chocolate com recheio cremoso e sorvete.</td>
-                            <td>R$ 28,00</td>
-                        </tr>
-                        <tr>
-                            <td>Tempurá de Sorvete Sakura</td>
-                            <td>Sorvete empanado e frito, crocante por fora.</td>
-                            <td>R$ 30,00</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-info">
-                <p><strong>Sakura Sushi</strong></p>
-                <p>Avenida Paulista, 1230 (dentro do Shopping Cidade São Paulo)</p>
-                <p>Bairro Bela vista - SP</p>
-                <p>Telefone: (11) 9 SAKURA-00</p>
-                <p>Email: <a href="mailto:contato@restaurantesakura.com.br">contato@restaurantesakura.com.br</a></p>
-            </div>
-            <div class="footer-social">
-                <p>Siga-nos:</p>
-                <a href="#" aria-label="Facebook">FB</a> <!-- Usar ícones aqui -->
-                <a href="#" aria-label="Instagram">IG</a> <!-- Usar ícones aqui -->
-            </div>
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="cardapio.html">Cardápio</a></li>
-                    <li><a href="sobre.html">Sobre Nós</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                    <li><a href="reserva.html">Reservas</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-copyright">
-            <p>&copy; 2025 Sakura Sushi. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="../js/script.js"></script>
-    <script src="../js/cardapio.js"></script>
+    <!-- JavaScript -->
+    <script src="src/js/script.js"></script>
 </body>
 </html>
