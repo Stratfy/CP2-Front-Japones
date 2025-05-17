@@ -65,7 +65,7 @@ sakura-sushi/
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/sakura-sushi.git
+git clone https://github.com/Stratfy/sakura-sushi-site.git
 ```
 
 2. Abra o arquivo `index.html` em seu navegador.
